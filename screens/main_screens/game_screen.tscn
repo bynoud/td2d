@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://nh6kmxi31cc2"]
+
+[ext_resource type="Script" path="res://screens/main_screens/game_screen.gd" id="1_jglxm"]
+[ext_resource type="PackedScene" uid="uid://cuqfma8xwjha5" path="res://screens/maps/map_1.tscn" id="1_rbssd"]
+[ext_resource type="Texture2D" uid="uid://dstu6s4y3hbta" path="res://assets/ui/buttons/blue_button03.png" id="2_ruiaw"]
+[ext_resource type="Texture2D" uid="uid://bf7ip2t0c5xx8" path="res://assets/tower/towerDefense_tile249.png" id="3_51ijq"]
+[ext_resource type="Texture2D" uid="uid://chpkyo43yvvp6" path="res://assets/tower/towerDefense_tile251.png" id="4_ukmbd"]
+
+[node name="GameScreen" type="Node2D"]
+script = ExtResource("1_jglxm")
+
+[node name="Map1" parent="." instance=ExtResource("1_rbssd")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BuildBar" type="VBoxContainer" parent="UI/HUD"]
+custom_minimum_size = Vector2(100, 400)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+offset_right = 80.0
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Gun" type="TextureButton" parent="UI/HUD/BuildBar" groups=["build_buttons"]]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_ruiaw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/BuildBar/Gun"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_51ijq")
+
+[node name="Missile" type="TextureButton" parent="UI/HUD/BuildBar" groups=["build_buttons"]]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_ruiaw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/BuildBar/Missile"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ukmbd")
